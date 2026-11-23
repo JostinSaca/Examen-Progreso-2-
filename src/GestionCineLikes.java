@@ -1,4 +1,14 @@
 public class GestionCineLikes {
+    // R5: suma exactamente uno al contador. Devuelve el contador actualizado.
+    public int darMeGusta(int numeroID) {
+        int indice = buscarIndicePorNumero(numeroID);
+        if (indice == -1) {
+            throw new IllegalArgumentException("Seleccione una película válida");
+        }
+        Pelicula p = peliculas.get(indice);
+        p.darMeGusta();
+        return p.getMeGusta();
+    }
 
     // R3: coincidencia exacta (sensible a mayúsculas) en título o director.
     public ArrayList<Pelicula> buscarPorTextoExacto(String texto) {
