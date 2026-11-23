@@ -1,6 +1,44 @@
 public class Pelicula {
+    private final int numeroID;
+    private String titulo;
+    private String director;
+    private String genero;
+    private int anio;
+    private int meGusta;
 
-    // R4: setters solo para los campos editables (no numeroID ni meGusta).
+    public Pelicula(int numeroID, String titulo, String director, String genero, int anio) {
+        this.numeroID = numeroID;
+        this.titulo = titulo;
+        this.director = director;
+        this.genero = genero;
+        this.anio = anio;
+        this.meGusta = 0;
+    }
+
+    public int getNumeroID() {
+        return numeroID;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public int getMeGusta() {
+        return meGusta;
+    }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -17,15 +55,13 @@ public class Pelicula {
         this.anio = anio;
     }
 
-    // R5: único medio para cambiar meGusta. Solo suma uno por clic válido.
     public void darMeGusta() {
         meGusta++;
     }
+
     @Override
     public String toString() {
         return numeroID + " - " + titulo + " (" + anio + ") - " + director
                 + " [" + genero + "] - Me gusta: " + meGusta;
     }
 }
-    }
-

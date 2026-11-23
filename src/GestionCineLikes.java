@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Calendar;
+
 public class GestionCineLikes {
 
     public static final String[] GENEROS = {"Drama", "Aventura", "Comedia", "Animación", "Documental"};
@@ -46,46 +49,6 @@ public class GestionCineLikes {
     }
 
 
-
-    // R4: búsqueda binaria sobre la colección descendente. Devuelve el índice o -1.
-    public int buscarIndicePorNumero(int numeroID) {
-        if (numeroID <= 0) {
-            throw new IllegalArgumentException("El código debe ser positivo");
-        }
-        int inicio = 0;
-        int fin = peliculas.size() - 1;
-        while (inicio <= fin) {
-            int medio = (inicio + fin) / 2;
-            int actual = peliculas.get(medio).getNumeroID();
-            if (actual == numeroID) {
-                return medio;
-            } else if (actual < numeroID) {
-                // Orden descendente: el código buscado está a la izquierda (es mayor).
-                fin = medio - 1;
-            } else {
-                inicio = medio + 1;
-            }
-        }
-        return -1;
-    }
-    public Pelicula buscarPorNumero(int numeroID) {
-        int indice = buscarIndicePorNumero(numeroID);
-        return indice == -1 ? null : peliculas.get(indice);
-    }
-    // R4: valida todos los valores antes de modificar; si falla uno, no cambia nada.
-
-    public void editar(int numeroID, String titulo, String director, String genero, int anio) {
-        int indice = buscarIndicePorNumero(numeroID);
-        if (indice == -1) {
-            throw new IllegalArgumentException("No existe una película con el código " + numeroID);
-        }
-        validarDatos(titulo, director, genero, anio);
-        Pelicula p = peliculas.get(indice);
-        p.setTitulo(titulo);
-        p.setDirector(director);
-        p.setGenero(genero);
-        p.setAnio(anio);
-    }
 
     // R2: registra una película validando todo antes de insertarla.
     // ===================== Responsable: Steven Vaca (R2) =====================
