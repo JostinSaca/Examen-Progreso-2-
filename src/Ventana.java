@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.text.ParseException;
 import java.time.Year;
 import java.util.ArrayList;
-
+//Ventana
 public class Ventana {
     private JPanel principal;
     private JTabbedPane tabbedPane1;
